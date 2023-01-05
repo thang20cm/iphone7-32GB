@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
 import { useState,useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Carousel } from 'react-bootstrap';
+
 
 
 //https://hebufedspceuwirrtzhk.supabase.co/storage/v1/object/public/images/4dbc9909-0f67-43a6-b9e0-818901652b93/ada80f4c-657c-4799-9d61-f930284ff725
