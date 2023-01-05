@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
 import { useState,useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Carousel } from 'react-bootstrap';
+
 
 //https://hebufedspceuwirrtzhk.supabase.co/storage/v1/object/public/images/4dbc9909-0f67-43a6-b9e0-818901652b93/ada80f4c-657c-4799-9d61-f930284ff725
 
@@ -104,10 +106,10 @@ async function deleteImage(imageName){
       }
       {user==null?
       <>
-        <h1>Welcome to Thang!</h1>
+        <h1>HELLO</h1>
         <Form>
           <Form.Group className="mb-3" style={{maxWidth:"500px"}}>
-              <Form.Label>Nhap email cua ban de dang nhap</Form.Label>
+              <Form.Label>Điền Email của bạn</Form.Label>
               <Form.Control
               type="email"
               placeholder="Nhap Email"
@@ -115,38 +117,45 @@ async function deleteImage(imageName){
               />
           </Form.Group>
           <Button variant="primary" onClick={()=>magicLinkLogin()}>
-            Get Magic Link
+            Đăng nhập
           </Button>
         </Form>
       </>
       :
       <>
         <h1>
-          Hinh cua ban
+          Hình của bạn
         </h1>
-        <Button onClick={() =>signOut()}>Dang xuat</Button>
+        <Button onClick={() =>signOut()}>Đăng xuất</Button>
         <p>Người dùng hiện tại:{user.email}</p>
-        <p>Su dung nut bam o duoi de tai anh cua ban</p>
+        <p>Nhấp vào ô dưới để tải lên ảnh</p>
         <Form.Group className="mb-3" style={{maxWidth:"500px"}}>
           <Form.Control type="file" accept="image/*" onChange={(e)=>uploadImage(e)}/>
         </Form.Group>
 
         <hr/>
-        <h3>Hinh cua ban ne</h3>
+        <h3>Hình của bạn nè</h3>
         {
 
         }
+      
         <Row xs={1} md={3} className="g-4">
           {images.map((image)=>{
             return(
+            
               <Col key={CDNURL + user.id + "/" +image.name}>
                 <Card>
-                  <Card.Img variant="top" src={CDNURL + user.id+"/" +image.name}/>
-                  <Card.Body>
-                    <Button variant="danger" onClick={()=>deleteImage(image.name)}>Xoa</Button>
-                  </Card.Body>
+                <div>
+                    
+                          <Card.Img variant="top" src={CDNURL + user.id+"/" +image.name}/>
+                            <Card.Body>
+                              <Button variant="danger" onClick={()=>deleteImage(image.name)}>Xóa</Button>
+                            </Card.Body>
+                    
+                  </div>
                 </Card>
               </Col>
+             
             )
           })}
         </Row>
