@@ -15,7 +15,7 @@ const CDNURL ="https://hebufedspceuwirrtzhk.supabase.co/storage/v1/object/public
 //CDNURL + user.id
 
 function App() {
-const [email,setEmail]=useState("");
+const [email,setEmail]=useState(true);
 const [images,setImages] = useState([]);
 const user = useUser();
 const supabase = useSupabaseClient();
